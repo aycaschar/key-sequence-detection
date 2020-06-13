@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+
+<body>
+  <style>
+    div {
+      margin: 0;
+      padding: 20px;
+      font-family: "Lucida Console", Courier, monospace;
+      font-size: 30px;
+      font-weight: 200;
+      border: 1px solid #5991f0;
+      text-align: center;
+      background-color: rgb(248, 122, 185);
+    }
+  </style>
+  <div class="container-fluid">Type The Secret Code To Get Unicorns *LONCA*</div>
+
+  <script>
+    const pressed = [];
+    const secretCode = 'lonca';
+
+    window.addEventListener('keyup', (e) => {
+      console.log(e.key);
+      pressed.push(e.key);
+      pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+      if (pressed.join('').includes(secretCode)) {
+        console.log('DING DING!');
+        cornify_add();
+      }
+      console.log(pressed);
+    });
+  </script>
+</body>
+
+</html>
